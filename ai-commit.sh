@@ -21,11 +21,33 @@ echo -n " [Use result for commit, rerun or abort y/r/n] "
 read DECISION
 
 if [[ $DECISION == [rR] ]]; then
-  exec ~/bin/ai-commit.sh
+  exec ~/bin/ai-commit/ai-commit.sh
 fi
 
 if [[ $DECISION == [yY] ]]; then
-  git commit -m "$STRIPPED_SUMMARY"
+  echo ""
+  echo "Conventional Commit Types:"
+  echo "  feat:     A new feature"
+  echo "  fix:      A bug fix"
+  echo "  docs:     Documentation changes"
+  echo "  style:    Code style changes (formatting, etc.)"
+  echo "  refactor: Code refactoring"
+  echo "  perf:     Performance improvements"
+  echo "  test:     Adding or updating tests"
+  echo "  build:    Build system or dependencies"
+  echo "  ci:       CI/CD changes"
+  echo "  chore:    Other changes (maintenance, etc.)"
+  echo ""
+  echo -n "Enter commit type prefix (or press Enter to skip): "
+  read COMMIT_PREFIX
+
+  if [[ -n $COMMIT_PREFIX ]]; then
+    FINAL_MESSAGE="${COMMIT_PREFIX}: ${STRIPPED_SUMMARY}"
+  else
+    FINAL_MESSAGE="$STRIPPED_SUMMARY"
+  fi
+
+  git commit -m "$FINAL_MESSAGE"
 fi
 
 if [[ $DECISION == [nN] ]]; then
