@@ -21,7 +21,7 @@ echo -n " [Use result for commit, rerun or abort y/r/n] "
 read DECISION
 
 if [[ $DECISION == [rR] ]]; then
-  exec ~/bin/ai-commit/ai-commit.sh
+  exec ~/.local/bin/ai-commit
 fi
 
 if [[ $DECISION == [yY] ]]; then
