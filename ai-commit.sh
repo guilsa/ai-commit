@@ -44,7 +44,7 @@ if [[ $DECISION == [yY] ]]; then
   if [[ -n $COMMIT_PREFIX ]]; then
     FINAL_MESSAGE="${COMMIT_PREFIX}: ${STRIPPED_SUMMARY}"
   else
-    FINAL_MESSAGE="$STRIPPED_SUMMARY"
+    FINAL_MESSAGE=$STRIPPED_SUMMARY
   fi
 
   git commit -m "$FINAL_MESSAGE"
