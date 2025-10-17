@@ -33,4 +33,5 @@ chmod +x ~/.local/bin/ai-commit
 
 # Prior art
 
-https://www.conventionalcommits.org/en/v1.0.0/
+1. https://www.conventionalcommits.org/en/v1.0.0/
+2. Original inspiration found [here](https://helius.dk/cheat-sheets/ollama/)
