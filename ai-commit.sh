@@ -13,7 +13,7 @@ $DIFF
 EOF
 )
 
-STRIPPED_SUMMARY=$( echo $SUMMARY | sed -e 's|<think>.*</think>||g' )
+STRIPPED_SUMMARY=$( echo $SUMMARY | sed -e 's|<think>.*</think>||g' -e 's/"//g' )
 
 echo -n $STRIPPED_SUMMARY
 
